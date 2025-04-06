@@ -29,15 +29,15 @@ const Upload = () => {
         const handleSubmit=async(e)=>{
             e.preventDefault();
             try{
-                setLoading(true)
-                const imgUrl = await uploadFile("image")
-                const videoUrl = await uploadFile("video")
-                await axios.post("http://localhost:5000/api/videos",{
-                    imgUrl,
-                    videoUrl
-                });
-                setImg(null)
-                setVideo(null)
+                // setLoading(true)
+                // const imgUrl = await uploadFile("image")
+                // const videoUrl = await uploadFile("video")
+                // await axios.post("http://localhost:5000/api/videos",{
+                //     imgUrl,
+                //     videoUrl
+                // });
+                // setImg(null)
+                // setVideo(null)
             console.log("file upload success")
             setLoading(false)
             }

@@ -36,7 +36,7 @@ function* uploadFileSaga(action) {
 
     // Once we get the Cloudinary URLs, post them to your backend saving them in mongoatlas
     
-    const response = yield call(axios.post, "http://localhost:5000/api/audio-upload/", {
+    const response = yield call(axios.post, "/api/audio-upload/", {
       title,
       artist,
       audioUrl
@@ -56,7 +56,7 @@ function* uploadFileSaga(action) {
 
 // API function to fetch songs from MongoDB
 const fetchSongs = async () => {
-  const response = await axios.get("http://localhost:5000/api/audio-upload"); // Fetching stored song URLs
+  const response = await axios.get("/api/audio-upload"); // Fetching stored song URLs
   return response.data;
 };
 
@@ -76,7 +76,7 @@ function* fetchAudioSaga() {
 function* updateAudioSaga(action) {
   try {
     const { id, title, artist, audioUrl } = action.payload;
-    const response = yield call(axios.put, `http://localhost:5000/api/audio-upload/${id}`, {
+    const response = yield call(axios.put, `/api/audio-upload/${id}`, {
       title,
       artist,
       audioUrl,
@@ -92,7 +92,7 @@ function* updateAudioSaga(action) {
 
 function* deleteAudioSaga(action) {
   try {
-    const response = yield call(axios.delete, `http://localhost:5000/api/audio-upload/${action.payload}`);
+    const response = yield call(axios.delete, `/api/audio-upload/${action.payload}`);
     if (response.data.message === "Audio deleted successfully"){
       yield put(deleteAudioSuccess(action.payload));
     }
