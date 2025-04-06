@@ -33,8 +33,9 @@ const SecureUpload = () => {
 
     const getSignatureForUpload = async (folder)=>{
         try{
-            const res = await axios.get(`http://localhost:5000/api/sign-upload`,{folder});
-            return res.data
+            // const res = await axios.get(`http://localhost:5000/api/sign-upload`,{folder});
+            // return res.data
+            console.log("hello")
         }
         catch(err){
             console.log('====================================');
@@ -48,16 +49,16 @@ const SecureUpload = () => {
             try{
                 setLoading(true)
 
-                const {timestamp:imgTimestamp , signature:imgSignature} = await getSignatureForUpload("images")
-                const {timestamp:videoTimestamp, signature:videoSignature} = await getSignatureForUpload("videos")
-                const imgUrl = await uploadFile("image",imgTimestamp,imgSignature)
-                const videoUrl = await uploadFile("video",videoTimestamp,videoSignature)
-                await axios.post("http://localhost:5000/api/videos",{
-                    imgUrl,
-                    videoUrl
-                });
-                setImg(null)
-                setVideo(null)
+                // const {timestamp:imgTimestamp , signature:imgSignature} = await getSignatureForUpload("images")
+                // const {timestamp:videoTimestamp, signature:videoSignature} = await getSignatureForUpload("videos")
+                // const imgUrl = await uploadFile("image",imgTimestamp,imgSignature)
+                // const videoUrl = await uploadFile("video",videoTimestamp,videoSignature)
+                // await axios.post("http://localhost:5000/api/videos",{
+                //     imgUrl,
+                //     videoUrl
+                // });
+                // setImg(null)
+                // setVideo(null)
             console.log("file upload success")
             setLoading(false)
             }

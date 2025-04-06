@@ -12,10 +12,10 @@ const DisplayAudio = () => {
     dispatch(fetchAudiosRequest());
   }, [dispatch]);
 
-  const handleDelete = async () => {
-    const res = await axios.get('http://localhost:5000/api/audio-upload/demo');
-    console.log(res);
-  };
+  // const handleDelete = async () => {
+  //   const res = await axios.get('http://localhost:5000/api/audio-upload/demo');
+  //   console.log(res);
+  // };
 
   return (
     <div className="min-h-screen bg-gray-100 py-8 px-4">
